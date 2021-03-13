@@ -54,7 +54,7 @@ db.connect(function (err) {
 */
 var result_ans="";
 app.get("/", function (req, res) {
-    var hello="this is hello";
+   /* var hello="this is hello";
     
     
         client.query("select * from doctor_data",function(err,result1){
@@ -106,7 +106,8 @@ app.get("/", function (req, res) {
     {
     console.log(result1)
     res.render(__dirname + "/views/" + "user_page.ejs",{result1:result1,result2:result2})
-    }
+    }*/
+    res.render(__dirname + "/views/" + "user_page.ejs");
     
 }).listen(8080)
 app.get("/consult",function(req,res){
