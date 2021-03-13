@@ -4,7 +4,33 @@ var exp = require("express")
 var app = exp()
 var mysql = require("mysql")
 var body_parser = require("body-parser") 
+var { Client } = require('pg');
 
+var client = new Client({
+    /*
+    user: 'postgres',
+    host: 'localhost',
+    database: 'best_solutions',
+    password: '',
+    port: 5432,
+    */
+   user :'hheejbdglisvds',
+   host:'ec2-100-24-139-146.compute-1.amazonaws.com',
+   database:'damrdg1p763hnr',
+   password:'40b80a81e11381bd3d02318f810628d72b52d1e09893231c4ab7460018680e48',
+   port:5432
+
+});
+
+client.connect();
+
+/*client.query("select * from doctor_data",function(err,result){
+    if(err)
+    throw err;
+    else
+    console.log(result.rows);
+})*/
+client.query("create table check( name Integer);",function(err,result){})
 //to send variables  on jsp page
 app.use(body_parser.urlencoded({ extended: false })) 
 console.log("hellO")
@@ -14,6 +40,9 @@ app.use(exp.static(__dirname + '/views'));
 
 //middlewere to load static files 
 app.set("view engine", "ejs");
+
+/*
+var mysql=require("mysql")
 var list = { host: "127.0.0.1", user: "root", password: "", database: "best_solutions" }
 var db = mysql.createConnection(list)
 db.connect(function (err) {
@@ -22,12 +51,14 @@ db.connect(function (err) {
     else
         console.log("connection established")
 })
+*/
 var result_ans="";
 app.get("/", function (req, res) {
     var hello="this is hello";
     
     
-        db.query("select * from doctor_data",function(err,result1){
+        client.query("select * from doctor_data",function(err,result1){
+            var result1=result1.rows
         if(err)
         {
             throw err;
@@ -50,7 +81,8 @@ app.get("/", function (req, res) {
     
     function do_operation(result1)
     { 
-        db.query("select * from product_data",function(err,result2){
+        client.query("select * from product_data",function(err,result2){
+            var result2=result2.rows
             if(err)
             {
                 throw err;
@@ -81,7 +113,8 @@ app.get("/consult",function(req,res){
     var hello="this is hello";
     
     
-        db.query("select * from doctor_data",function(err,result1){
+        client.query("select * from doctor_data",function(err,result1){
+            var result1=result1.rows;
         if(err)
         {
             throw err;
@@ -104,7 +137,8 @@ app.get("/consult",function(req,res){
     
     function do_operation(result1)
     { 
-        db.query("select * from product_data",function(err,result2){
+        client.query("select * from product_data",function(err,result2){
+            var result2=result2.rows
             if(err)
             {
                 throw err;
@@ -152,7 +186,8 @@ app.post("/input_data",function(req,res){
     var hello="this is hello";
     
     
-    db.query("select * from doctor_data",function(err,result1){
+    client.query("select * from doctor_data",function(err,result1){
+    var result1=result1.rows
     if(err)
     {
         throw err;
@@ -175,7 +210,8 @@ app.post("/input_data",function(req,res){
 
 function do_operation(result1)
 { 
-    db.query("select * from product_data",function(err,result2){
+    client.query("select * from product_data",function(err,result2){
+        var result2=result2.rows
         if(err)
         {
             throw err;
@@ -206,7 +242,8 @@ app.get("/final",function(req,res){
     var hello="this is hello";
     
     
-    db.query("select * from doctor_data",function(err,result1){
+    client.query("select * from doctor_data",function(err,result1){
+        var result1=result1.rows
     if(err)
     {
         throw err;
@@ -229,7 +266,8 @@ app.get("/final",function(req,res){
 
 function do_operation(result1)
 { 
-    db.query("select * from product_data",function(err,result2){
+    client.query("select * from product_data",function(err,result2){
+        var result2=result2.rows
         if(err)
         {
             throw err;
@@ -260,7 +298,8 @@ app.get("/disease",function(req,res){
     var hello="this is hello";
     
     
-    db.query("select * from doctor_data",function(err,result1){
+    client.query("select * from doctor_data",function(err,result1){
+        var result1=result1.rows
     if(err)
     {
         throw err;
@@ -283,7 +322,8 @@ app.get("/disease",function(req,res){
 
 function do_operation(result1)
 { 
-    db.query("select * from product_data",function(err,result2){
+    client.query("select * from product_data",function(err,result2){
+        var result2=result2.rows
         if(err)
         {
             throw err;
