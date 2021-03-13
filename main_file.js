@@ -5,7 +5,7 @@ var app = exp()
 var mysql = require("mysql")
 var body_parser = require("body-parser") 
 var { Client } = require('pg');
-
+const PORT = process.env.PORT || 3000;
 var client = new Client({
     /*
     user: 'postgres',
@@ -109,7 +109,7 @@ app.get("/", function (req, res) {
     }*/
     res.render(__dirname + "/views/" + "user_page.ejs");
     
-}).listen(8080)
+}).listen(PORT)
 app.get("/consult",function(req,res){
     var hello="this is hello";
     
