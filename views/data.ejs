@@ -3,9 +3,10 @@
 <head>
 
     <!-- title,external css and javascript-->
-    <title>This page is for appointment</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/hexagons.min.css">
+    <title>This page is for booking confirmation</title>
+    <link rel="stylesheet" type="text/css" href="/mycss.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/hexagons.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -20,73 +21,14 @@
     <!--added external css,title and javascript-->
 
     <!-- style-->    
-    <style>
-        .form-popup {
-      border-radius: 10px;
-  display: none;
-  position:absolute;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-  width:300px;
-  height:auto;
-  
-}
-        .scroll {
-
-
-
-            max-height: 600px;
-
-
-            overflow-y: scroll;
-
-        }
-
-        .scroll::-webkit-scrollbar {
-
-            width: 8px;
-
-        }
-
-
-
-        .scroll::-webkit-scrollbar-track {
-
-
-
-            border-radius: 20px;
-
-        }
-
-
-
-        .scroll::-webkit-scrollbar-thumb {
-
-            background: rgb(152, 37, 187);
-
-            border-radius: 10px;
-
-        }
-
-        .h-zigzag {
-            height: 600px;
-            width: 100%px;
-            background:
-                linear-gradient(45deg, #152E4E 5px, transparent 0) 0 5px,
-                linear-gradient(-45deg, #152E4E 5px, #fff 0) 0 5px;
-            background-color: #152E4E;
-            background-position: right top;
-            background-repeat: repeat-x;
-            background-size: 10px 10px;
-
-        }
-    </style>
+    
 </head>
 
 <body style="margin:30px; padding:30px">
 
 
     <!--adding javascript for the cards-->
+    <!--these are same as specified in consult.ejs-->
     <script>
         function opencard1(e)
         {  
@@ -155,6 +97,28 @@
           console.log("close card")
           document.getElementById("card_element4").style.display="none"
         }
+
+        function decrease(value)
+  {
+  
+   var html= parseInt(document.getElementById(value).innerHTML)
+   console.log(html)
+   if(html!=0)
+   html=html-1;
+   document.getElementById(value).innerHTML=html;
+
+
+  }
+  function increase(value)
+  {
+   var html= parseInt(document.getElementById(value).innerHTML)
+   console.log(html)
+   
+   html=html+1;
+   document.getElementById(value).innerHTML=html;
+
+
+  }
       </script>
 
       <!--javascript added for the cards-->
@@ -177,7 +141,7 @@
           <div class="card-body">
             <h5 class="card-title">Specialization</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary">Consult</a>
           </div>
         </div>
       </div>
@@ -237,7 +201,7 @@
        <!--adding navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="images\we.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="\images\we.png" width="30" height="30" class="d-inline-block align-top" alt="">
         </a>
 
 
@@ -282,20 +246,23 @@
     <div style="margin-top:20px;width:100%;height:auto;display:inline-block">
         <!--adding div for doctor details-->
         <div class="card" style="float:left;height:auto;width:20%;">
-            <img style="margin-left:auto;margin-right:auto;padding-top:20px;border-radius:50%;" src="images/person1.jpg"
+            <img style="margin-left:auto;margin-right:auto;padding-top:20px;border-radius:50%;" src="/images/person1.jpg"
                 width="100px" height="100px" alt="Card image cap">
             <div style="margin-top:10px;" class="card-body">
+
+                <!-- here you will have to add the detials dynamically-->
+                <!-- I have added all the detials in static manner but you to add these detaiils dynamically-->
                 <h5 style="text-align:center;" class="card-title">Dr Vijay Kumar</h5>
                 <h6 style="text-align:center;" class="card-title">Thyroid Specialist</h6>
                 <p style="text-align:center;" class="card-text">Thyroid specialist in emerrgency medicine</p>
                 <hr>
                 <div style="display: inline-block;">
-                    <img style="float:left" src="images/thumbs_up.png" alt="this is text" width="20px" height="20px">
+                    <img style="float:left" src="/images/thumbs_up.png" alt="this is text" width="20px" height="20px">
                     <p style="float:left;margin-left:20px"> 93%</p>
-                    <img style="float:left;margin-left:40px" src="images/rupees.png" alt="this is text" width="20px"
+                    <img style="float:left;margin-left:40px" src="/images/rupees.png" alt="this is text" width="20px"
                         height="20px">
                     <p style="float:left;margin-left:20px">600</p>
-                    <img style="float:left" src="images/message.png" alt="this is text" width="20px" height="20px">
+                    <img style="float:left" src="/images/message.png" alt="this is text" width="20px" height="20px">
                     <p style="float:left;margin-left:9px"> 33 success stories</p>
                 </div>
             </div>
@@ -415,7 +382,7 @@
     <div class="card " style="width:75%;margin-left: 25%;padding-top:10px;height:auto">
         <div style="display:inline-block">
             <h3 style="float:left;margin-left:30px"> Patient Stories</h3>
-            <img style="float:left; margin-left:600px" src="images/thumbs_up.png" width="30px" height="30px"
+            <img style="float:left; margin-left:600px" src="/images/thumbs_up.png" width="30px" height="30px"
                 alt="thumbs up">
         </div>
         <hr>
@@ -423,8 +390,8 @@
             style="box-shadow: 0px 5px 0px 5px white; margin-top: 30px;margin-bottom: 30px;margin-left:10px">
 
         </div>
-        <button style="margin-bottom: 2px;margin-left:65%;margin-right:10px;border-radius:20px" type="button"
-            class="btn btn-danger">Share your story</button>
+        <a href="write_about" style="margin-left:30%;margin-right:30%;float:right" <button style="margin-bottom: 2px;margin-left:65%;margin-right:10px;border-radius:20px" type="button"
+            class="btn btn-danger">Share your story</button></a>
     </div>
     <!--added patient stories-->
 </div>
@@ -439,8 +406,8 @@
 
 
     <!--adding doctor for consultation-->
-    <div style="margin-top:30px;background-color:rgb(138, 138, 192);">
-        <h1> Consult </h1>
+    <div style="margin-top:30px;background-color:rgb(138, 138, 192);text-align:center;width:100%">
+        <h1 style="margin:auto"> Consult </h1>
 
         <div style="display:inline-block">
             <% for (var i=0; i <4; i++ ) { %>
@@ -454,7 +421,7 @@
                         <p class="card-text">
                             <%= result1[i].specialization %>
                         </p>
-                        <a style="margin:auto" href="#" class="btn btn-primary">Go somewhere</a>
+                        <a style="margin:auto" href="/<%=result1[i].doctor_id.substring(0,5) %>/consult" class="btn btn-primary">Consult</a>
                     </div>
                 </div>
 
@@ -494,7 +461,13 @@
                         <p class="card-text">
                             <%= result2[i].specialization %>
                         </p>
-                        <a style="margin:auto" href="#" class="btn btn-primary">Go somewhere</a>
+                        <div style="margin-bottom:10px">
+                            <button onclick= "return decrease('<%=result2[i].product_id.substring(0,result2[i].product_id.length-4)%>')" style="width:10px" type="button" class="btn btn-success">-</button>
+                            <p style="display:inline" id="<%=result2[i].product_id.substring(0,result2[i].product_id.length-4)%>">0</p>
+                            <button onclick="return increase('<%=result2[i].product_id.substring(0,result2[i].product_id.length-4)%>')" style="width:10px" type="button" class="btn btn-success">+</button>
+                          </div>
+                            <a style="margin:auto"  id="add_to_cart<%=result2[i].product_id.substring(0,result2[i].product_id.length-4)%>" class="add_to_cart btn btn-primary">Add to cart</a>
+                        
                     </div>
                 </div>
                 <% } %>
@@ -527,14 +500,14 @@
         <div style="width:100%; margin:0px">
             <div style="border-radius:10px;background-color:rgb(120, 120, 163);text-align:center;width:35%; margin-left:50px; float:left;"
                 class="card" style="width: 18rem;">
-                <img class="card-img-top" src="images/person1.jpg" width="280px" height="300px" alt="Card image cap">
+                <img class="card-img-top" src="/images/person1.jpg" width="280px" height="300px" alt="Card image cap">
                 <div style="margin:auto;" class="card-body">
                     <a href="#" class="btn btn-primary">Drop in a query</a>
                 </div>
             </div>
             <div style="border-radius:10px;background-color:rgb(120, 120, 163);text-align:center;width:35%; margin-right:50px; float:right;"
                 class="card" style="width: 18rem;">
-                <img class="card-img-top" src="images/person2.jpg" width="280px" height="300px" alt="Card image cap">
+                <img class="card-img-top" src="/images/person2.jpg" width="280px" height="300px" alt="Card image cap">
                 <div style="margin:auto;" class="card-body">
                     <a href="#" class="btn btn-primary">Join the dsicussion</a>
                 </div>
@@ -582,5 +555,35 @@
   </div>
   <!--social media attached-->
   
+
+
+  <!--this is the same add to cart function to add the products to the cart-->
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script>
+  $(".add_to_cart").click(function(){
+    var id=this.id;
+    var string =id.slice(11,id.length);
+    console.log(string)
+    var html=document.getElementById(string).innerHTML;
+    console.log(html)
+    if(string>0)
+    {
+      $.ajax({
+        url:"/add_to_cart",
+        data:{
+           count:html,
+           id:string
+        },
+        method:"post",
+        success:function(res){
+          console.log(res.msg);
+        }
+      })
+    }
+  })
+  </script>
+  
+
 </body>
 </html>
